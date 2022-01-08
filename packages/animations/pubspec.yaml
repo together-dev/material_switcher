@@ -1,0 +1,25 @@
+name: animations
+description: Fancy pre-built animations that can easily be integrated into any Flutter application.
+version: 2.0.0
+homepage: https://github.com/volskaya/material_switcher
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  freezed_annotation: ^0.14.1
+  provider: ^6.0.1
+  nil: ^1.1.1
+
+  sliver_transform:
+    path: /Users/muru/Projects/packages/utilities.flutter/packages/sliver_transform
+
+dev_dependencies:
+  flutter_lints:
+  build_runner:
+  vector_math: ^2.1.0
+  freezed: ^0.14.1+1

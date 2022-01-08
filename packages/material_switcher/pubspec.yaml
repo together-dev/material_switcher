@@ -1,0 +1,29 @@
+name: material_switcher
+description: Material animations for widgets and images.
+version: 1.0.0
+homepage: github.com/volskaya/material_switcher
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0 <2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  sliver_tools: ^0.2.0
+
+  animations:
+    git
+      url: git@github.com:volskaya/material_switcher
+      ref: 26a007376a83a1bbd397719b57a7a01315b2a8a3
+      path: packages/animations
+  await_route:
+    git:
+      url: git@github.com:volskaya/utilities.flutter
+      ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
+      path: packages/await_route
+
+dev_dependencies:
+  flutter_lints:
