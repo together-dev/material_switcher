@@ -15,13 +15,13 @@ dependencies:
   sliver_tools: ^0.2.0
 
   animations:
-    git
-      url: git@github.com:volskaya/material_switcher
-      ref: 26a007376a83a1bbd397719b57a7a01315b2a8a3
+    git:
+      url: https://github.com/volskaya/material_switcher
+      ref: ee7dfe6ef8355f3b3d6d3cb58109e9e2acefb0f8
       path: packages/animations
   await_route:
     git:
-      url: git@github.com:volskaya/utilities.flutter
+      url: https://github.com/volskaya/utilities.flutter
       ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
       path: packages/await_route
 
