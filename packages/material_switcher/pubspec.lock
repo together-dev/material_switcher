@@ -4,9 +4,11 @@ packages:
   animations:
     dependency: "direct main"
     description:
-      path: "/Users/muru/Projects/packages/material_switcher/packages/animations"
-      relative: false
-    source: path
+      path: "packages/animations"
+      ref: ee7dfe6ef8355f3b3d6d3cb58109e9e2acefb0f8
+      resolved-ref: ee7dfe6ef8355f3b3d6d3cb58109e9e2acefb0f8
+      url: "git@github.com:volskaya/material_switcher"
+    source: git
     version: "2.0.0"
   async:
     dependency: transitive
@@ -98,7 +100,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.0"
+    version: "6.0.2"
   sky_engine:
     dependency: transitive
     description: flutter

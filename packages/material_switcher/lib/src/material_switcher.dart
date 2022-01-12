@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:animations/animations.dart';
 import 'package:await_route/await_route.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Stack;
 import 'package:flutter/scheduler.dart';
+import 'package:material_switcher/src/rendering/stack.dart';
+import 'package:material_switcher/src/widgets/stack.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 /// Type of the material animation used in the material switcher widgets.
@@ -62,6 +64,7 @@ class MaterialSwitcher extends StatefulWidget {
     this.paintInheritedAnimations = false,
     this.wrapInheritBoundary = false,
     this.delayInitialChild = true,
+    this.instantSize = false,
   })  : _type = MaterialSwitcherType.fade,
         assert(placeholder == null || placeholder is! MaterialSwitcherTag),
         assert(!paintInheritedAnimations || inherit),
@@ -88,6 +91,7 @@ class MaterialSwitcher extends StatefulWidget {
     this.paintInheritedAnimations = false,
     this.wrapInheritBoundary = false,
     this.delayInitialChild = true,
+    this.instantSize = false,
   })  : _type = MaterialSwitcherType.axisVertical,
         assert(placeholder == null || placeholder is! MaterialSwitcherTag),
         super(key: key);
@@ -113,6 +117,7 @@ class MaterialSwitcher extends StatefulWidget {
     this.paintInheritedAnimations = false,
     this.wrapInheritBoundary = false,
     this.delayInitialChild = true,
+    this.instantSize = false,
   })  : _type = MaterialSwitcherType.axisHorizontal,
         assert(placeholder == null || placeholder is! MaterialSwitcherTag),
         assert(!paintInheritedAnimations || inherit),
@@ -139,6 +144,7 @@ class MaterialSwitcher extends StatefulWidget {
     this.paintInheritedAnimations = false,
     this.wrapInheritBoundary = false,
     this.delayInitialChild = true,
+    this.instantSize = false,
   })  : _type = MaterialSwitcherType.scaled,
         assert(placeholder == null || placeholder is! MaterialSwitcherTag),
         assert(!paintInheritedAnimations || inherit),
@@ -215,9 +221,31 @@ class MaterialSwitcher extends StatefulWidget {
   /// Whether to add an [InheritedAnimationCoordinator.boundary] to avoid inheriting parent animations.
   final bool wrapInheritBoundary;
 
+  /// When `true`, the layout will size it to the last child's size, even if any
+  /// other children are still animating out.
+  ///
+  /// This doesn't support [sliver] layout.
+  final bool instantSize;
+
   /// Layout builder for slivers.
-  static Widget sliverLayoutBuilder(List<Widget> entries, [AlignmentGeometry alignment = Alignment.center]) =>
+  static SliverStack sliverLayoutBuilder(
+    List<Widget> entries, [
+    AlignmentGeometry alignment = Alignment.center,
+  ]) =>
       SliverStack(children: entries, positionedAlignment: alignment);
+
+  /// Layout builder for boxes.
+  static Stack boxLayoutBuilder(
+    List<Widget> entries, [
+    AlignmentGeometry alignment = Alignment.center,
+    StackSizeTarget sizeTarget = StackSizeTarget.expand,
+  ]) =>
+      Stack(
+        children: entries,
+        alignment: alignment,
+        clipBehavior: Clip.none,
+        sizeTarget: sizeTarget,
+      );
 
   @override
   _MaterialSwitcherState createState() => _MaterialSwitcherState();
@@ -367,9 +395,21 @@ class _MaterialSwitcherState extends State<MaterialSwitcher> {
     }
   }
 
-  Widget _buildLayout(List<Widget> entries, [AlignmentGeometry alignment = Alignment.center]) => widget.sliver
-      ? MaterialSwitcher.sliverLayoutBuilder(entries, alignment)
-      : PageTransitionSwitcher.defaultLayoutBuilder(entries, alignment);
+  Widget _buildLayout(
+    List<Widget> entries, [
+    AlignmentGeometry alignment = Alignment.center,
+  ]) =>
+      widget.sliver
+          ? MaterialSwitcher.sliverLayoutBuilder(entries, alignment)
+          : MaterialSwitcher.boxLayoutBuilder(
+              entries,
+              alignment,
+              widget.instantSize
+                  ? _reverse
+                      ? StackSizeTarget.firstChild
+                      : StackSizeTarget.lastChild
+                  : StackSizeTarget.expand,
+            );
 
   @override
   Widget build(BuildContext context) {
