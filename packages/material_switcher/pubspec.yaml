@@ -17,7 +17,7 @@ dependencies:
   animations:
     git:
       url: https://github.com/volskaya/material_switcher
-      ref: ee7dfe6ef8355f3b3d6d3cb58109e9e2acefb0f8
+      ref: 716901c4f32d38b82981746630a960dce89d3780
       path: packages/animations
   await_route:
     git:
