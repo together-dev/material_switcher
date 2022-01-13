@@ -16,7 +16,10 @@ dependencies:
   nil: ^1.1.1
 
   sliver_transform:
-    path: /Users/muru/Projects/packages/utilities.flutter/packages/sliver_transform
+    git:
+      url: https://github.com/volskaya/utilities.flutter
+      ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
+      path: packages/sliver_transform
 
 dev_dependencies:
   flutter_lints:
