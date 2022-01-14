@@ -5,9 +5,9 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/animations"
-      ref: ee7dfe6ef8355f3b3d6d3cb58109e9e2acefb0f8
-      resolved-ref: ee7dfe6ef8355f3b3d6d3cb58109e9e2acefb0f8
-      url: "git@github.com:volskaya/material_switcher"
+      ref: "054f33fb36fd3c6b045f6459f5e9a2c7b218ad7b"
+      resolved-ref: "054f33fb36fd3c6b045f6459f5e9a2c7b218ad7b"
+      url: "https://github.com/volskaya/material_switcher"
     source: git
     version: "2.0.0"
   async:
@@ -23,7 +23,7 @@ packages:
       path: "packages/await_route"
       ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
       resolved-ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
-      url: "git@github.com:volskaya/utilities.flutter"
+      url: "https://github.com/volskaya/utilities.flutter"
     source: git
     version: "1.0.0"
   characters:
@@ -116,9 +116,11 @@ packages:
   sliver_transform:
     dependency: transitive
     description:
-      path: "/Users/muru/Projects/packages/utilities.flutter/packages/sliver_transform"
-      relative: false
-    source: path
+      path: "packages/sliver_transform"
+      ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
+      resolved-ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
+      url: "https://github.com/volskaya/utilities.flutter"
+    source: git
     version: "0.0.1"
   typed_data:
     dependency: transitive

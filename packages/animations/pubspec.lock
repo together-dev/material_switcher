@@ -364,9 +364,11 @@ packages:
   sliver_transform:
     dependency: "direct main"
     description:
-      path: "/Users/muru/Projects/packages/utilities.flutter/packages/sliver_transform"
-      relative: false
-    source: path
+      path: "packages/sliver_transform"
+      ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
+      resolved-ref: ef4e6a4369fd1cd8831d998061e5473b557a75f4
+      url: "https://github.com/volskaya/utilities.flutter"
+    source: git
     version: "0.0.1"
   source_gen:
     dependency: transitive
