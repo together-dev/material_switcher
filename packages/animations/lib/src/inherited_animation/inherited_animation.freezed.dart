@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'inherited_animation.dart';
@@ -136,13 +137,13 @@ class _$_InheritedAnimationValue
   const _$_InheritedAnimationValue(
       {this.opacity = 1.0, this.scale = 1.0, this.translation = Offset.zero});
 
-  @JsonKey(defaultValue: 1.0)
+  @JsonKey()
   @override
   final double opacity;
-  @JsonKey(defaultValue: 1.0)
+  @JsonKey()
   @override
   final double scale;
-  @JsonKey(defaultValue: Offset.zero)
+  @JsonKey()
   @override
   final Offset translation;
 
@@ -164,23 +165,20 @@ class _$_InheritedAnimationValue
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _InheritedAnimationValue &&
-            (identical(other.opacity, opacity) ||
-                const DeepCollectionEquality()
-                    .equals(other.opacity, opacity)) &&
-            (identical(other.scale, scale) ||
-                const DeepCollectionEquality().equals(other.scale, scale)) &&
-            (identical(other.translation, translation) ||
-                const DeepCollectionEquality()
-                    .equals(other.translation, translation)));
+        (other.runtimeType == runtimeType &&
+            other is _InheritedAnimationValue &&
+            const DeepCollectionEquality().equals(other.opacity, opacity) &&
+            const DeepCollectionEquality().equals(other.scale, scale) &&
+            const DeepCollectionEquality()
+                .equals(other.translation, translation));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(opacity) ^
-      const DeepCollectionEquality().hash(scale) ^
-      const DeepCollectionEquality().hash(translation);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(opacity),
+      const DeepCollectionEquality().hash(scale),
+      const DeepCollectionEquality().hash(translation));
 
   @JsonKey(ignore: true)
   @override
@@ -196,11 +194,11 @@ abstract class _InheritedAnimationValue implements InheritedAnimationValue {
       Offset translation}) = _$_InheritedAnimationValue;
 
   @override
-  double get opacity => throw _privateConstructorUsedError;
+  double get opacity;
   @override
-  double get scale => throw _privateConstructorUsedError;
+  double get scale;
   @override
-  Offset get translation => throw _privateConstructorUsedError;
+  Offset get translation;
   @override
   @JsonKey(ignore: true)
   _$InheritedAnimationValueCopyWith<_InheritedAnimationValue> get copyWith =>
