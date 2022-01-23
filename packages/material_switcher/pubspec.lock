@@ -5,8 +5,8 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/animations"
-      ref: "054f33fb36fd3c6b045f6459f5e9a2c7b218ad7b"
-      resolved-ref: "054f33fb36fd3c6b045f6459f5e9a2c7b218ad7b"
+      ref: fcf7e405b6eac08be50a308bc9d49c96df57d096
+      resolved-ref: fcf7e405b6eac08be50a308bc9d49c96df57d096
       url: "https://github.com/volskaya/material_switcher"
     source: git
     version: "2.0.0"
@@ -58,14 +58,14 @@ packages:
       name: freezed_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.3"
+    version: "1.1.0"
   json_annotation:
     dependency: transitive
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.4.0"
   lints:
     dependency: transitive
     description:
