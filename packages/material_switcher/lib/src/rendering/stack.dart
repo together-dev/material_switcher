@@ -84,7 +84,6 @@ class RenderStack extends RenderBox
   AlignmentGeometry get alignment => _alignment;
   AlignmentGeometry _alignment;
   set alignment(AlignmentGeometry value) {
-    assert(value != null);
     if (_alignment == value) return;
     _alignment = value;
     _markNeedResolution();
@@ -110,7 +109,6 @@ class RenderStack extends RenderBox
   StackFit get fit => _fit;
   StackFit _fit;
   set fit(StackFit value) {
-    assert(value != null);
     if (_fit != value) {
       _fit = value;
       markNeedsLayout();
@@ -123,7 +121,6 @@ class RenderStack extends RenderBox
   Clip get clipBehavior => _clipBehavior;
   Clip _clipBehavior = Clip.hardEdge;
   set clipBehavior(Clip value) {
-    assert(value != null);
     if (value != _clipBehavior) {
       _clipBehavior = value;
       markNeedsPaint();

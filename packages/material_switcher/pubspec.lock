@@ -5,8 +5,8 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/animations"
-      ref: fcf7e405b6eac08be50a308bc9d49c96df57d096
-      resolved-ref: fcf7e405b6eac08be50a308bc9d49c96df57d096
+      ref: "75dbdcfb6443e01d20ed8d8c3903b023d19ed1d5"
+      resolved-ref: "75dbdcfb6443e01d20ed8d8c3903b023d19ed1d5"
       url: "https://github.com/volskaya/material_switcher"
     source: git
     version: "2.0.0"
@@ -39,7 +39,7 @@ packages:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.15.0"
+    version: "1.16.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -73,6 +73,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  material_color_utilities:
+    dependency: transitive
+    description:
+      name: material_color_utilities
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
   meta:
     dependency: transitive
     description:
@@ -122,20 +129,13 @@ packages:
       url: "https://github.com/volskaya/utilities.flutter"
     source: git
     version: "0.0.1"
-  typed_data:
-    dependency: transitive
-    description:
-      name: typed_data
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.0"
   vector_math:
     dependency: transitive
     description:
       name: vector_math
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
 sdks:
   dart: ">=2.14.0 <3.0.0"
   flutter: ">=1.17.0"

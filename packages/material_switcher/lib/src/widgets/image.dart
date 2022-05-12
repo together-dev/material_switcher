@@ -114,13 +114,7 @@ class Image extends StatefulWidget {
     this.gaplessPlayback = false,
     this.isAntiAlias = false,
     this.filterQuality = FilterQuality.low,
-  })  : assert(image != null),
-        assert(alignment != null),
-        assert(repeat != null),
-        assert(filterQuality != null),
-        assert(matchTextDirection != null),
-        assert(isAntiAlias != null),
-        super(key: key);
+  })  : super(key: key);
 
   /// Creates a widget that displays an [ImageStream] obtained from the network.
   ///
@@ -178,12 +172,8 @@ class Image extends StatefulWidget {
     int? cacheWidth,
     int? cacheHeight,
   })  : image = ResizeImage.resizeIfNeeded(cacheWidth, cacheHeight, NetworkImage(src, scale: scale, headers: headers)),
-        assert(alignment != null),
-        assert(repeat != null),
-        assert(matchTextDirection != null),
         assert(cacheWidth == null || cacheWidth > 0),
         assert(cacheHeight == null || cacheHeight > 0),
-        assert(isAntiAlias != null),
         super(key: key);
 
   /// Creates a widget that displays an [ImageStream] obtained from a [File].
@@ -241,13 +231,8 @@ class Image extends StatefulWidget {
     int? cacheHeight,
   })  : image = ResizeImage.resizeIfNeeded(cacheWidth, cacheHeight, FileImage(file, scale: scale)),
         loadingBuilder = null,
-        assert(alignment != null),
-        assert(repeat != null),
-        assert(filterQuality != null),
-        assert(matchTextDirection != null),
         assert(cacheWidth == null || cacheWidth > 0),
         assert(cacheHeight == null || cacheHeight > 0),
-        assert(isAntiAlias != null),
         super(key: key);
 
   // TODO(ianh): Implement the following (see ../services/image_resolution.dart):
@@ -814,14 +799,14 @@ class _ImageState extends State<Image> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     _scrollAwareContext = DisposableBuildContext<State<Image>>(this);
   }
 
   @override
   void dispose() {
     assert(_imageStream != null);
-    WidgetsBinding.instance!.removeObserver(this);
+    WidgetsBinding.instance.removeObserver(this);
     _stopListeningToStream();
     _completerHandle?.dispose();
     _scrollAwareContext.dispose();
@@ -869,7 +854,7 @@ class _ImageState extends State<Image> with WidgetsBindingObserver {
 
   void _updateInvertColors() {
     _invertColors =
-        MediaQuery.maybeOf(context)?.invertColors ?? SemanticsBinding.instance!.accessibilityFeatures.invertColors;
+        MediaQuery.maybeOf(context)?.invertColors ?? SemanticsBinding.instance.accessibilityFeatures.invertColors;
   }
 
   void _resolveImage() {
@@ -940,7 +925,7 @@ class _ImageState extends State<Image> with WidgetsBindingObserver {
     //
     // Dispose the image in a postframe, so animation widgets can clone this in time.
     if (oldImageInfo != null) {
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
         oldImageInfo.dispose();
       });
     }

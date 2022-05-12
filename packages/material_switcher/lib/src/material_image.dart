@@ -283,8 +283,6 @@ class MaterialImage extends StatelessWidget {
     final isNotTransparent = rawImage?.image?.width != 1.0 && rawImage?.image?.height != 1.0;
     final switcherChild = isNotTransparent && (hasFrames || hasGaplessImage) ? rawImage : _idleChild;
 
-    print(switcherChild?.key);
-
     switch (type) {
       case MaterialImageType.scale:
       case MaterialImageType.axisHorizontal:
@@ -335,7 +333,6 @@ class MaterialImage extends StatelessWidget {
 
         switch (type) {
           case MaterialImageType.scale:
-            print(child?.key);
             return MaterialSwitcher(
               duration: duration ?? MaterialImage.transitionDuration,
               alignment: alignment,
@@ -415,8 +412,8 @@ class MaterialImage extends StatelessWidget {
             ? constraints != null
                 ? ResizeImage(
                     imageProvider!,
-                    width: (constraints.biggest.width * WidgetsBinding.instance!.window.devicePixelRatio).round(),
-                    height: (constraints.biggest.height * WidgetsBinding.instance!.window.devicePixelRatio).round(),
+                    width: (constraints.biggest.width * WidgetsBinding.instance.window.devicePixelRatio).round(),
+                    height: (constraints.biggest.height * WidgetsBinding.instance.window.devicePixelRatio).round(),
                   )
                 : imageProvider!
             : MaterialImage.transparentImage,
