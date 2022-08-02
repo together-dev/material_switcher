@@ -38,7 +38,7 @@ class _ChildEntry {
 
   final Widget widget;
   final Key? key;
-  final int index;
+  final int? index;
 }
 
 /// Material switcher that wraps transitions of the `animations` package
@@ -270,9 +270,11 @@ class _MaterialSwitcherState extends State<MaterialSwitcher> {
       if (!canUpdate) {
         if ((entry?.index ?? 0) == (_child?.index ?? 0)) {
           // Indexes default to 0. If swapping entries with the same indexes, check if the new
-          // key matches the previous childs key, to determine whether to reverse the animation.
+          // key matches the previous child's key, to determine whether to reverse the animation.
           _reverse = entry?.key == _reverseKey;
           if (!_reverse) _reverseKey = _child?.key;
+        } else if (entry?.index == null && _child?.index != null) {
+          _reverse = false;
         } else {
           _reverse = (entry?.index ?? 0) < (_child?.index ?? 0) ? true : false;
         }
@@ -492,9 +494,9 @@ class MaterialSwitcherTag extends StatelessWidget {
   }
 
   /// Attempt to get the dynamic tag out of [MaterialSwitcherTag].
-  static int getIndex(Widget? child) => child != null && child is MaterialSwitcherTag
+  static int? getIndex(Widget? child) => child != null && child is MaterialSwitcherTag
       ? child.index ?? (child.tag != null && child.tag is int ? child.tag as int : 0)
-      : 0;
+      : null;
 
   @override
   Widget build(BuildContext context) {

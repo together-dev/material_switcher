@@ -1,4 +1,5 @@
-import 'package:flutter/rendering.dart';
+import 'package:flutter/rendering.dart'
+    hide RenderAnimatedSize, RenderAnimatedSizeState;
 import 'package:flutter/widgets.dart';
 
 /// A [RenderAnimatedSize] can be in exactly one of these states.
@@ -41,13 +42,6 @@ enum RenderAnimatedSizeState {
   unstable,
 }
 
-/// A callback called on every tick of [RenderAnimatedSize._controller].
-typedef RenderAnimatedSizeOnChangedCallback = void Function(
-  RenderAnimatedSizeState state,
-  Size size,
-  double t,
-);
-
 /// A render object that animates its size to its child's size over a given
 /// [duration] and with a given [curve]. If the child's size itself animates
 /// (i.e. if it changes size two frames in a row, as opposed to abruptly
@@ -80,10 +74,9 @@ class RenderAnimatedSize extends RenderAligningShiftedBox {
     TextDirection? textDirection,
     RenderBox? child,
     Clip clipBehavior = Clip.hardEdge,
-    RenderAnimatedSizeOnChangedCallback? onChanged,
+    this.trackUnstableLayout = true,
   })  : _vsync = vsync,
         _clipBehavior = clipBehavior,
-        _onChanged = onChanged,
         super(
           child: child,
           alignment: alignment,
@@ -104,15 +97,11 @@ class RenderAnimatedSize extends RenderAligningShiftedBox {
   late final CurvedAnimation _animation;
   final SizeTween _sizeTween = SizeTween();
   late bool _hasVisualOverflow;
-  RenderAnimatedSizeOnChangedCallback? _onChanged;
   double? _lastValue;
+  bool trackUnstableLayout;
 
   void _handleControllerChange() {
     if (_controller.value != _lastValue) {
-      if (_onChanged != null) {
-        final size = _sizeTween.transform(_animation.value)!;
-        _onChanged!(_state, size, _animation.value);
-      }
       markNeedsLayout();
     }
   }
@@ -123,13 +112,6 @@ class RenderAnimatedSize extends RenderAligningShiftedBox {
   @visibleForTesting
   RenderAnimatedSizeState get state => _state;
   RenderAnimatedSizeState _state = RenderAnimatedSizeState.start;
-
-  /// A callback called on every [_controller] tick.
-  RenderAnimatedSizeOnChangedCallback? get onChanged => _onChanged;
-  set onChanged(RenderAnimatedSizeOnChangedCallback? value) {
-    if (value == _onChanged) return;
-    _onChanged = value;
-  }
 
   /// The duration of the animation.
   Duration get duration => _controller.duration!;
@@ -298,7 +280,7 @@ class RenderAnimatedSize extends RenderAligningShiftedBox {
   /// changes again, we match the child's size, restart animation and go to
   /// unstable state.
   void _layoutChanged() {
-    if (_sizeTween.end != child!.size) {
+    if (trackUnstableLayout && _sizeTween.end != child!.size) {
       // Child size changed again. Match the child's size and restart animation.
       _sizeTween.begin = _sizeTween.end = debugAdoptSize(child!.size);
       _restartAnimation();
@@ -315,7 +297,7 @@ class RenderAnimatedSize extends RenderAligningShiftedBox {
   ///
   /// Continue tracking the child's size until is stabilizes.
   void _layoutUnstable() {
-    if (_sizeTween.end != child!.size) {
+    if (trackUnstableLayout && _sizeTween.end != child!.size) {
       // Still unstable. Continue tracking the child.
       _sizeTween.begin = _sizeTween.end = debugAdoptSize(child!.size);
       _restartAnimation();

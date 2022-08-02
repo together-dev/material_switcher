@@ -1,14 +1,17 @@
-import 'package:flutter/rendering.dart' hide RenderAnimatedSize;
+import 'package:flutter/rendering.dart'
+    hide RenderAnimatedSize, RenderAnimatedSizeState;
 import 'package:flutter/widgets.dart';
 import 'package:material_switcher/src/rendering/animated_size.dart';
 
 /// Animated widget that automatically transitions its size over a given
 /// duration whenever the given child's size changes.
-class AnimatedSize extends StatefulWidget {
+///
+/// This is a fork of flutter's own [AnimatedSize].
+class AnimatedLayout extends StatefulWidget {
   /// Creates a widget that animates its size to match that of its child.
   ///
   /// The [curve] and [duration] arguments must not be null.
-  const AnimatedSize({
+  const AnimatedLayout({
     Key? key,
     this.child,
     this.alignment = Alignment.center,
@@ -16,7 +19,7 @@ class AnimatedSize extends StatefulWidget {
     required this.duration,
     this.reverseDuration,
     this.clipBehavior = Clip.hardEdge,
-    this.onChanged,
+    this.trackUnstableLayout = false,
   }) : super(key: key);
 
   /// The widget below this widget in the tree.
@@ -64,14 +67,17 @@ class AnimatedSize extends StatefulWidget {
   /// Defaults to [Clip.hardEdge], and must not be null.
   final Clip clipBehavior;
 
-  /// A callback called on every tick of [RenderAnimatedSize._controller].
-  final RenderAnimatedSizeOnChangedCallback? onChanged;
+  /// Whether to track the size of child, while layout is [RenderAnimatedSizeState.unstable].
+  ///
+  /// While layout is unstable, the size can't be animated. Toggling this off delays
+  /// the animation until the layout is stable again.
+  final bool trackUnstableLayout;
 
   @override
-  State<AnimatedSize> createState() => _AnimatedSizeState();
+  State<AnimatedLayout> createState() => _AnimatedLayoutState();
 }
 
-class _AnimatedSizeState extends State<AnimatedSize>
+class _AnimatedLayoutState extends State<AnimatedLayout>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
@@ -82,7 +88,7 @@ class _AnimatedSizeState extends State<AnimatedSize>
       reverseDuration: widget.reverseDuration,
       vsync: this,
       clipBehavior: widget.clipBehavior,
-      onChanged: widget.onChanged,
+      trackUnstableLayout: widget.trackUnstableLayout,
       child: widget.child,
     );
   }
@@ -98,7 +104,7 @@ class _AnimatedSize extends SingleChildRenderObjectWidget {
     this.reverseDuration,
     required this.vsync,
     this.clipBehavior = Clip.hardEdge,
-    this.onChanged,
+    this.trackUnstableLayout = true,
   }) : super(key: key, child: child);
 
   final AlignmentGeometry alignment;
@@ -107,7 +113,7 @@ class _AnimatedSize extends SingleChildRenderObjectWidget {
   final Duration? reverseDuration;
   final TickerProvider vsync;
   final Clip clipBehavior;
-  final RenderAnimatedSizeOnChangedCallback? onChanged;
+  final bool trackUnstableLayout;
 
   @override
   RenderAnimatedSize createRenderObject(BuildContext context) {
@@ -119,7 +125,7 @@ class _AnimatedSize extends SingleChildRenderObjectWidget {
       vsync: vsync,
       textDirection: Directionality.maybeOf(context),
       clipBehavior: clipBehavior,
-      onChanged: onChanged,
+      trackUnstableLayout: trackUnstableLayout,
     );
   }
 
@@ -134,7 +140,7 @@ class _AnimatedSize extends SingleChildRenderObjectWidget {
       ..vsync = vsync
       ..textDirection = Directionality.maybeOf(context)
       ..clipBehavior = clipBehavior
-      ..onChanged = onChanged;
+      ..trackUnstableLayout = trackUnstableLayout;
   }
 
   @override

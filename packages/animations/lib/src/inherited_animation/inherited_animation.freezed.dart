@@ -12,26 +12,7 @@ part of 'inherited_animation.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$InheritedAnimationValueTearOff {
-  const _$InheritedAnimationValueTearOff();
-
-  _InheritedAnimationValue call(
-      {double opacity = 1.0,
-      double scale = 1.0,
-      Offset translation = Offset.zero}) {
-    return _InheritedAnimationValue(
-      opacity: opacity,
-      scale: scale,
-      translation: translation,
-    );
-  }
-}
-
-/// @nodoc
-const $InheritedAnimationValue = _$InheritedAnimationValueTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$InheritedAnimationValue {
@@ -85,26 +66,26 @@ class _$InheritedAnimationValueCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$InheritedAnimationValueCopyWith<$Res>
+abstract class _$$_InheritedAnimationValueCopyWith<$Res>
     implements $InheritedAnimationValueCopyWith<$Res> {
-  factory _$InheritedAnimationValueCopyWith(_InheritedAnimationValue value,
-          $Res Function(_InheritedAnimationValue) then) =
-      __$InheritedAnimationValueCopyWithImpl<$Res>;
+  factory _$$_InheritedAnimationValueCopyWith(_$_InheritedAnimationValue value,
+          $Res Function(_$_InheritedAnimationValue) then) =
+      __$$_InheritedAnimationValueCopyWithImpl<$Res>;
   @override
   $Res call({double opacity, double scale, Offset translation});
 }
 
 /// @nodoc
-class __$InheritedAnimationValueCopyWithImpl<$Res>
+class __$$_InheritedAnimationValueCopyWithImpl<$Res>
     extends _$InheritedAnimationValueCopyWithImpl<$Res>
-    implements _$InheritedAnimationValueCopyWith<$Res> {
-  __$InheritedAnimationValueCopyWithImpl(_InheritedAnimationValue _value,
-      $Res Function(_InheritedAnimationValue) _then)
-      : super(_value, (v) => _then(v as _InheritedAnimationValue));
+    implements _$$_InheritedAnimationValueCopyWith<$Res> {
+  __$$_InheritedAnimationValueCopyWithImpl(_$_InheritedAnimationValue _value,
+      $Res Function(_$_InheritedAnimationValue) _then)
+      : super(_value, (v) => _then(v as _$_InheritedAnimationValue));
 
   @override
-  _InheritedAnimationValue get _value =>
-      super._value as _InheritedAnimationValue;
+  _$_InheritedAnimationValue get _value =>
+      super._value as _$_InheritedAnimationValue;
 
   @override
   $Res call({
@@ -112,7 +93,7 @@ class __$InheritedAnimationValueCopyWithImpl<$Res>
     Object? scale = freezed,
     Object? translation = freezed,
   }) {
-    return _then(_InheritedAnimationValue(
+    return _then(_$_InheritedAnimationValue(
       opacity: opacity == freezed
           ? _value.opacity
           : opacity // ignore: cast_nullable_to_non_nullable
@@ -137,14 +118,14 @@ class _$_InheritedAnimationValue
   const _$_InheritedAnimationValue(
       {this.opacity = 1.0, this.scale = 1.0, this.translation = Offset.zero});
 
-  @JsonKey()
   @override
+  @JsonKey()
   final double opacity;
-  @JsonKey()
   @override
+  @JsonKey()
   final double scale;
-  @JsonKey()
   @override
+  @JsonKey()
   final Offset translation;
 
   @override
@@ -166,7 +147,7 @@ class _$_InheritedAnimationValue
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _InheritedAnimationValue &&
+            other is _$_InheritedAnimationValue &&
             const DeepCollectionEquality().equals(other.opacity, opacity) &&
             const DeepCollectionEquality().equals(other.scale, scale) &&
             const DeepCollectionEquality()
@@ -182,25 +163,26 @@ class _$_InheritedAnimationValue
 
   @JsonKey(ignore: true)
   @override
-  _$InheritedAnimationValueCopyWith<_InheritedAnimationValue> get copyWith =>
-      __$InheritedAnimationValueCopyWithImpl<_InheritedAnimationValue>(
-          this, _$identity);
+  _$$_InheritedAnimationValueCopyWith<_$_InheritedAnimationValue>
+      get copyWith =>
+          __$$_InheritedAnimationValueCopyWithImpl<_$_InheritedAnimationValue>(
+              this, _$identity);
 }
 
 abstract class _InheritedAnimationValue implements InheritedAnimationValue {
   const factory _InheritedAnimationValue(
-      {double opacity,
-      double scale,
-      Offset translation}) = _$_InheritedAnimationValue;
+      {final double opacity,
+      final double scale,
+      final Offset translation}) = _$_InheritedAnimationValue;
 
   @override
-  double get opacity;
+  double get opacity => throw _privateConstructorUsedError;
   @override
-  double get scale;
+  double get scale => throw _privateConstructorUsedError;
   @override
-  Offset get translation;
+  Offset get translation => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$InheritedAnimationValueCopyWith<_InheritedAnimationValue> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_InheritedAnimationValueCopyWith<_$_InheritedAnimationValue>
+      get copyWith => throw _privateConstructorUsedError;
 }
