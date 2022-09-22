@@ -176,11 +176,11 @@ abstract class _InheritedAnimationValue implements InheritedAnimationValue {
       final Offset translation}) = _$_InheritedAnimationValue;
 
   @override
-  double get opacity => throw _privateConstructorUsedError;
+  double get opacity;
   @override
-  double get scale => throw _privateConstructorUsedError;
+  double get scale;
   @override
-  Offset get translation => throw _privateConstructorUsedError;
+  Offset get translation;
   @override
   @JsonKey(ignore: true)
   _$$_InheritedAnimationValueCopyWith<_$_InheritedAnimationValue>
