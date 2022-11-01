@@ -5,8 +5,8 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/animations"
-      ref: "75dbdcfb6443e01d20ed8d8c3903b023d19ed1d5"
-      resolved-ref: "75dbdcfb6443e01d20ed8d8c3903b023d19ed1d5"
+      ref: "5cf422db280d6e9632404000d85c984ceb89759f"
+      resolved-ref: "5cf422db280d6e9632404000d85c984ceb89759f"
       url: "https://github.com/volskaya/material_switcher"
     source: git
     version: "2.0.0"
@@ -14,9 +14,10 @@ packages:
     dependency: transitive
     description:
       name: async
-      url: "https://pub.dartlang.org"
+      sha256: bfe67ef28df125b7dddcea62755991f807aa39a2492a23e1550161692950bbe0
+      url: "https://pub.dev"
     source: hosted
-    version: "2.5.0"
+    version: "2.10.0"
   await_route:
     dependency: "direct main"
     description:
@@ -30,16 +31,18 @@ packages:
     dependency: transitive
     description:
       name: characters
-      url: "https://pub.dartlang.org"
+      sha256: e6a326c8af69605aec75ed6c187d06b349707a27fbff8222ca9cc2cff167975c
+      url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   collection:
     dependency: transitive
     description:
       name: collection
-      url: "https://pub.dartlang.org"
+      sha256: cfc915e6923fe5ce6e153b0723c753045de46de1b4d63771530504004a45fae0
+      url: "https://pub.dev"
     source: hosted
-    version: "1.16.0"
+    version: "1.17.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -49,65 +52,82 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      url: "https://pub.dartlang.org"
+      sha256: aeb0b80a8b3709709c9cc496cdc027c5b3216796bc0af0ce1007eaf24464fd4c
+      url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
+    version: "2.0.1"
   freezed_annotation:
     dependency: transitive
     description:
       name: freezed_annotation
-      url: "https://pub.dartlang.org"
+      sha256: aeac15850ef1b38ee368d4c53ba9a847e900bb2c53a4db3f6881cbb3cb684338
+      url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "2.2.0"
+  js:
+    dependency: transitive
+    description:
+      name: js
+      sha256: "5528c2f391ededb7775ec1daa69e65a2d61276f7552de2b5f7b8d34ee9fd4ab7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.5"
   json_annotation:
     dependency: transitive
     description:
       name: json_annotation
-      url: "https://pub.dartlang.org"
+      sha256: "3520fa844009431b5d4491a5a778603520cdc399ab3406332dcc50f93547258c"
+      url: "https://pub.dev"
     source: hosted
-    version: "4.4.0"
+    version: "4.7.0"
   lints:
     dependency: transitive
     description:
       name: lints
-      url: "https://pub.dartlang.org"
+      sha256: "5e4a9cd06d447758280a8ac2405101e0e2094d2a1dbdd3756aec3fe7775ba593"
+      url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "2.0.1"
   material_color_utilities:
     dependency: transitive
     description:
       name: material_color_utilities
-      url: "https://pub.dartlang.org"
+      sha256: d92141dc6fe1dad30722f9aa826c7fbc896d021d792f80678280601aff8cf724
+      url: "https://pub.dev"
     source: hosted
-    version: "0.1.4"
+    version: "0.2.0"
   meta:
     dependency: transitive
     description:
       name: meta
-      url: "https://pub.dartlang.org"
+      sha256: "6c268b42ed578a53088d834796959e4a1814b5e9e164f147f580a386e5decf42"
+      url: "https://pub.dev"
     source: hosted
-    version: "1.7.0"
+    version: "1.8.0"
   nested:
     dependency: transitive
     description:
       name: nested
-      url: "https://pub.dartlang.org"
+      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
+      url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
   nil:
     dependency: transitive
     description:
       name: nil
-      url: "https://pub.dartlang.org"
+      sha256: ef05770c48942876d843bf6a4822d35e5da0ff893a61f1d5ad96d15c4a659136
+      url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
   provider:
     dependency: transitive
     description:
       name: provider
-      url: "https://pub.dartlang.org"
+      sha256: e1e7413d70444ea3096815a60fe5da1b11bda8a9dc4769252cc82c53536f8bcc
+      url: "https://pub.dev"
     source: hosted
-    version: "6.0.2"
+    version: "6.0.4"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -117,9 +137,10 @@ packages:
     dependency: "direct main"
     description:
       name: sliver_tools
-      url: "https://pub.dartlang.org"
+      sha256: edf005f1a47c2ffa6f1e1a4f24dd99c45b8bccfff9b928d39170d36dc6fda871
+      url: "https://pub.dev"
     source: hosted
-    version: "0.2.0"
+    version: "0.2.8"
   sliver_transform:
     dependency: transitive
     description:
@@ -133,9 +154,10 @@ packages:
     dependency: transitive
     description:
       name: vector_math
-      url: "https://pub.dartlang.org"
+      sha256: "80b3257d1492ce4d091729e3a67a60407d227c27241d6927be0130c98e741803"
+      url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.4"
 sdks:
-  dart: ">=2.14.0 <3.0.0"
+  dart: ">=2.18.0 <4.0.0"
   flutter: ">=1.17.0"

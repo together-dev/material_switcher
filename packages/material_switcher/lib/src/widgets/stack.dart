@@ -1,5 +1,5 @@
-import 'package:flutter/rendering.dart' hide RenderStack;
-import 'package:flutter/widgets.dart' hide Stack;
+import 'package:flutter/rendering.dart' hide RenderStack, StackSizeTarget;
+import 'package:flutter/widgets.dart' hide Stack, StackSizeTarget;
 import 'package:material_switcher/src/rendering/stack.dart';
 
 /// A widget that positions its children relative to the edges of its box.

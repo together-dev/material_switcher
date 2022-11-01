@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:animations/animations.dart';
 import 'package:await_route/await_route.dart';
-import 'package:flutter/material.dart' hide Stack;
+import 'package:flutter/material.dart' hide Stack, StackSizeTarget;
 import 'package:flutter/scheduler.dart';
 import 'package:material_switcher/src/rendering/stack.dart';
 import 'package:material_switcher/src/widgets/stack.dart';
