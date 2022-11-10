@@ -2,9 +2,8 @@ import 'dart:async';
 
 import 'package:animations/animations.dart';
 import 'package:await_route/await_route.dart';
-import 'package:flutter/material.dart' hide Stack, StackSizeTarget;
+import 'package:flutter/material.dart' hide Stack;
 import 'package:flutter/scheduler.dart';
-import 'package:material_switcher/src/rendering/stack.dart';
 import 'package:material_switcher/src/widgets/stack.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
@@ -256,10 +255,13 @@ class _MaterialSwitcherState extends State<MaterialSwitcher> {
   bool _reverse = false;
   dynamic _reverseKey;
   Widget get _placeholder => widget.placeholder != null
-      ? MaterialSwitcherTag(tag: MaterialSwitcherTag.placeholderTag, child: widget.placeholder!)
-      : const MaterialSwitcherTag(tag: MaterialSwitcherTag.placeholderTag, child: SizedBox.shrink());
+      ? MaterialSwitcherTag(
+          tag: MaterialSwitcherTag.placeholderTag, child: widget.placeholder!)
+      : const MaterialSwitcherTag(
+          tag: MaterialSwitcherTag.placeholderTag, child: SizedBox.shrink());
 
-  static bool _compareChildren(Widget? a, Widget? b) => MaterialSwitcherTag.canUpdate(a, b);
+  static bool _compareChildren(Widget? a, Widget? b) =>
+      MaterialSwitcherTag.canUpdate(a, b);
 
   // When the entries are swapped, their index is compared to determine if
   // the next switch should animate in reverse.
@@ -293,7 +295,9 @@ class _MaterialSwitcherState extends State<MaterialSwitcher> {
     assert(widget.awaitRoute || widget.delay > Duration.zero);
 
     if (widget.awaitRoute) await AwaitRoute.of(context);
-    if (mounted && widget.delay > Duration.zero && (widget.shouldDelay?.call() ?? true)) {
+    if (mounted &&
+        widget.delay > Duration.zero &&
+        (widget.shouldDelay?.call() ?? true)) {
       await Future<void>.delayed(widget.delay * timeDilation);
     }
     if (mounted && _compareChildren(widget.child, child)) {
@@ -301,9 +305,11 @@ class _MaterialSwitcherState extends State<MaterialSwitcher> {
     }
   }
 
-  void _handleChildChange(Widget? old, Widget? current, {bool isInitial = false}) {
+  void _handleChildChange(Widget? old, Widget? current,
+      {bool isInitial = false}) {
     if (!_compareChildren(old, current) || isInitial) {
-      final shouldDelay = widget.delay > Duration.zero && (widget.shouldDelay?.call() ?? true);
+      final shouldDelay =
+          widget.delay > Duration.zero && (widget.shouldDelay?.call() ?? true);
       final willDelay = isInitial
           ? widget.delayInitialChild
               ? shouldDelay
@@ -490,17 +496,22 @@ class MaterialSwitcherTag extends StatelessWidget {
     final dynamic aChild = a is MaterialSwitcherTag ? a.child : a;
     final dynamic bChild = b is MaterialSwitcherTag ? b.child : b;
 
-    return aTag == bTag && ((aChild?.key ?? aChild?.runtimeType) == (bChild?.key ?? bChild?.runtimeType));
+    return aTag == bTag &&
+        ((aChild?.key ?? aChild?.runtimeType) ==
+            (bChild?.key ?? bChild?.runtimeType));
   }
 
   /// Attempt to get the dynamic tag out of [MaterialSwitcherTag].
-  static int? getIndex(Widget? child) => child != null && child is MaterialSwitcherTag
-      ? child.index ?? (child.tag != null && child.tag is int ? child.tag as int : 0)
-      : null;
+  static int? getIndex(Widget? child) =>
+      child != null && child is MaterialSwitcherTag
+          ? child.index ??
+              (child.tag != null && child.tag is int ? child.tag as int : 0)
+          : null;
 
   @override
   Widget build(BuildContext context) {
-    assert(false, 'MaterialSwitcherTag is not supposed to be included in the widget tree');
+    assert(false,
+        'MaterialSwitcherTag is not supposed to be included in the widget tree');
     return child;
   }
 }
